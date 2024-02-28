@@ -1,3 +1,4 @@
+#pragma once
 
 // This is the configuration file for the robot
 // Fill all the required the parameters and
