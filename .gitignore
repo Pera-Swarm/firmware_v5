@@ -1,0 +1,7 @@
+.pio
+.clang_complete
+.gcc-flags.json
+
+src/*.ino.cpp
+.vscode/
+src/config/config.h
