@@ -10,33 +10,21 @@ int ROBOT_ID;
 
 void setup()
 {
-    // put your setup code here, to run once:
-
-    // Enables Serial Communication with baudRate of 115200
     Serial.begin(115200);
-    Serial.println("PeraSwarm Robot v5");
+    Wire.begin();
+    delay(2000);
 
-    memory.begin(); // NOTE: This should be run as the first thing.
-
-    // This commands should be run 'ONLY' at the first run to assign a ID for robot
-    // memory.setupRobotWithId(RobotId)
-    // memory.setupRobotWithId(0);
-    ROBOT_ID = memory.getRobotId();
-
-    pinMode(PIN_LED_INBUILT, OUTPUT);
-
-    // Scan available I2C devices
-    i2c_scan();
+    motion.begin();
 }
 
 void loop()
 {
-    // put your main code here, to run repeatedly:
-
-    digitalWrite(PIN_LED_INBUILT, HIGH);
-    delay(1000);
-    digitalWrite(PIN_LED_INBUILT, LOW);
-    delay(1000);
+    static uint32_t prev_ms = millis();
+    if (millis() > prev_ms + 25)
+    {
+        motion.test();
+        prev_ms = millis();
+    }
 }
 
 #endif
