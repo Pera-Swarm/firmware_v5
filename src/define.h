@@ -18,3 +18,6 @@
 #include "utilities/memory/memory.h"
 
 // *** Modules **************************************************
+
+// Motion Sensor
+#include "sensors/motion/motion.h"
