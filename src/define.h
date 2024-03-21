@@ -18,3 +18,6 @@
 #include "utilities/memory/memory.h"
 
 // *** Modules **************************************************
+
+// Motors
+#include "modules/motors/motors.h"

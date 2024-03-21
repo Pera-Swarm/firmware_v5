@@ -4,6 +4,13 @@
 #define PIN_LED_INBUILT 2
 
 // --------------------------------------------------------- Motors and Encoders
+#define PIN_MOT_R1 26
+#define PIN_MOT_R2 -1
+#define PIN_MOT_L1 25
+#define PIN_MOT_L2 -1
+
+#define PIN_PWM_R 13
+#define PIN_PWM_L 12
 
 // ----------------------------------------------------- Unused or reserved pins
 #define PIN_TX 1
