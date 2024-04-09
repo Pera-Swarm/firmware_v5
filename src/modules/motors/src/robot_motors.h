@@ -53,9 +53,10 @@ public:
 
     void test();
 
-    void encoderPrint();
-    void encoderReset();
-    EncoderReadings encoderRead();
+    void encoder_print();
+    void encoder_reset();
+    void encoder_read(int32_t *left, int32_t *right);
+    EncoderReadings encoder_read();
 };
 
 #endif
