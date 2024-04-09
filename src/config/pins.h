@@ -12,6 +12,12 @@
 #define PIN_PWM_R 13
 #define PIN_PWM_L 12
 
+#define PIN_ENC_RA -1
+#define PIN_ENC_RB -1
+
+#define PIN_ENC_LA -1
+#define PIN_ENC_LB -1
+
 // ----------------------------------------------------- Unused or reserved pins
 #define PIN_TX 1
 #define PIN_RX 3

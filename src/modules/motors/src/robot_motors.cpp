@@ -20,6 +20,11 @@
  */
 SW_Motors::SW_Motors()
 {
+    encoderL.setCount(0);
+    encoderL.attachHalfQuad(PIN_ENC_LA, PIN_ENC_LB);
+
+    encoderR.setCount(0);
+    encoderR.attachHalfQuad(PIN_ENC_RA, PIN_ENC_RB);
 }
 
 SW_Motors::~SW_Motors()
@@ -194,4 +199,38 @@ void SW_Motors::test()
     }
     this->stop(500);
     delay(2000);
+}
+
+/**
+ * Print the encoder readings
+ */
+void SW_Motors::encoderPrint()
+{
+    int32_t countL = encoderL.getCount();
+    int32_t countR = encoderR.getCount();
+    Serial.printf("Encoder L: %d, R: %d\n", countL, countR);
+    delay(100);
+}
+
+/**
+ * Reset the encoder readings to 0
+ */
+void SW_Motors::encoderReset()
+{
+    encoderL.clearCount();
+    encoderR.clearCount();
+}
+
+/**
+ * Read rncoder values and return as a Struct
+ *
+ * @return EncoderReadings
+ */
+EncoderReadings SW_Motors::encoderRead()
+{
+    struct EncoderReadings readings;
+    readings.left = encoderL.getCount();
+    readings.right = encoderR.getCount();
+
+    return readings;
 }
