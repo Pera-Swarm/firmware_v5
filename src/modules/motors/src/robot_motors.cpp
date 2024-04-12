@@ -20,6 +20,11 @@
  */
 SW_Motors::SW_Motors()
 {
+    encoderL.setCount(0);
+    encoderL.attachHalfQuad(PIN_ENC_LA, PIN_ENC_LB);
+
+    encoderR.setCount(0);
+    encoderR.attachHalfQuad(PIN_ENC_RA, PIN_ENC_RB);
 }
 
 SW_Motors::~SW_Motors()
@@ -194,4 +199,49 @@ void SW_Motors::test()
     }
     this->stop(500);
     delay(2000);
+}
+
+/**
+ * Print the encoder readings
+ */
+void SW_Motors::encoder_print()
+{
+    int32_t countL = encoderL.getCount();
+    int32_t countR = encoderR.getCount();
+    Serial.printf("Encoder L: %d, R: %d\n", countL, countR);
+    delay(100);
+}
+
+/**
+ * Reset the encoder readings to 0
+ */
+void SW_Motors::encoder_reset()
+{
+    encoderL.clearCount();
+    encoderR.clearCount();
+}
+
+/**
+ * Read encoder values and return as a pointers
+ * @param *left Pointer variable to receive left encoder reading
+ * @param *right Pointer variable to receive right encoder reading
+ */
+void SW_Motors::encoder_read(int32_t *left, int32_t *right)
+{
+    *left = encoderL.getCount();
+    *right = encoderR.getCount();
+}
+
+/**
+ * Read encoder values and return as a Struct
+ *
+ * @return EncoderReadings
+ */
+EncoderReadings SW_Motors::encoder_read()
+{
+    struct EncoderReadings readings;
+    readings.left = encoderL.getCount();
+    readings.right = encoderR.getCount();
+
+    return readings;
 }

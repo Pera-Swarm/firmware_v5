@@ -13,10 +13,16 @@
 #include <Arduino.h>
 
 #include "config/definitions.h"
+#include "robot_encoder.h"
 
 #define MAX_MOTOR_SPEED 255
 #define MIN_MOTOR_SPEED 30
 
+struct EncoderReadings
+{
+    int left;
+    int right;
+};
 class SW_Motors
 {
 private:
@@ -26,6 +32,9 @@ private:
     boolean leftMotorDir = 1, rightMotorDir = 1;
     boolean leftMotorDirOld = 0, rightMotorDirOld = 0;
     int16_t rightMotorSpeed = 0, leftMotorSpeed = 0;
+
+    RobotEncoder encoderL;
+    RobotEncoder encoderR;
 
 public:
     SW_Motors();
@@ -43,6 +52,11 @@ public:
     void resume();
 
     void test();
+
+    void encoder_print();
+    void encoder_reset();
+    void encoder_read(int32_t *left, int32_t *right);
+    EncoderReadings encoder_read();
 };
 
 #endif

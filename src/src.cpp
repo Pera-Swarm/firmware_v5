@@ -35,8 +35,9 @@ void loop()
 {
     // put your main code here, to run repeatedly:
 
-    motors.test();
+    motors.write(100, 100);
     delay(1000);
+    motors.encoder_print();
 }
 
 #endif
