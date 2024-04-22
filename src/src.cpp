@@ -27,16 +27,17 @@ void setup()
 
     // Scan available I2C devices
     i2c_scan();
+
+    motors.begin();
 }
 
 void loop()
 {
     // put your main code here, to run repeatedly:
 
-    digitalWrite(PIN_LED_INBUILT, HIGH);
+    motors.write(100, 100);
     delay(1000);
-    digitalWrite(PIN_LED_INBUILT, LOW);
-    delay(1000);
+    motors.encoder_print();
 }
 
 #endif
