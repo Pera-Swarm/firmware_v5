@@ -11,20 +11,18 @@ int ROBOT_ID;
 void setup()
 {
     Serial.begin(115200);
-    Wire.begin();
-    delay(2000);
-
     motion.begin();
+    
+    // motion.calibrate();
+    
+    memory.begin();
+    // memory.saveCalibration();
+    memory.loadCalibration();
 }
 
 void loop()
 {
-    static uint32_t prev_ms = millis();
-    if (millis() > prev_ms + 25)
-    {
-        motion.test();
-        prev_ms = millis();
-    }
+    motion.test();
 }
 
 #endif

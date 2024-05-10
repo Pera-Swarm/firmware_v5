@@ -14,7 +14,7 @@ SW_MPU9250::SW_MPU9250(bool useCalibration)
 void SW_MPU9250::begin()
 {
     Wire.begin();
-
+    delay(2000);
     if (!mpu.setup(I2C_ADDRESS_MPU9250))
     { // change to your own address
         while (1)

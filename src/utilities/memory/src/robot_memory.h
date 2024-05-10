@@ -15,6 +15,18 @@
 class SW_Memory
 {
 public:
+    void writeByte(int address, byte value);
+    void writeFloat(int address, float value);
+    byte readByte(int address);
+    float readFloat(int address);
+    void clearCalibration();
+    bool isCalibrated();
+    void saveCalibration();
+    void loadCalibration();
+    void printCalibration();
+    void printBytes();
+    void setupEEPROM();
+
     SW_Memory();
 
     int getRobotId();
