@@ -21,3 +21,6 @@
 
 // Motion Sensor
 #include "sensors/motion/motion.h"
+
+// Motors
+#include "modules/motors/motors.h"

@@ -6,5 +6,4 @@ src/*.ino.cpp
 .vscode/
 src/config/config.h
 
-
 .DS_Store
