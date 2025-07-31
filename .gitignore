@@ -5,6 +5,7 @@
 # IDE / editor metadata
 .vscode/*
 !.vscode/extensions.json
+!.vscode/settings.json
 .idea/
 
 src/*.ino.cpp
